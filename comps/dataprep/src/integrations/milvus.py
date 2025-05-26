@@ -15,6 +15,7 @@ from langchain_core.documents import Document
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_milvus.vectorstores import Milvus
 from langchain_text_splitters import HTMLHeaderTextSplitter
+from dpk_doc_chunk.transform_python import DocChunk
 
 from comps import CustomLogger, DocPath, OpeaComponent, OpeaComponentRegistry, ServiceType
 from comps.cores.proto.api_protocol import DataprepRequest
@@ -103,6 +104,8 @@ async def ingest_data_to_milvus(doc_path: DocPath, embeddings):
         ]
         text_splitter = HTMLHeaderTextSplitter(headers_to_split_on=headers_to_split_on)
     else:
+        
+        
         text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=doc_path.chunk_size,
             chunk_overlap=doc_path.chunk_overlap,

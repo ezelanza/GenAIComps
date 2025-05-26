@@ -72,3 +72,4 @@ tzlocal
 unstructured[all-docs]
 uvicorn
 webvtt-py
+data-prep-toolkit-transforms[doc_chunk]
